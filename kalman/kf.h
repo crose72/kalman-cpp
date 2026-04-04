@@ -121,6 +121,13 @@ public:
      */
     colvec *GetCurrentEstimatedOutput();
 
+    /*!
+     * @brief Get current covariance.
+     * This is the filtered measurements, with less noise.
+     * @return Current covariance
+     */
+    mat *GetCurrentCovariance();
+
 private:
     mat A_;    ///< System matrix
     mat B_;    ///< Input matrix

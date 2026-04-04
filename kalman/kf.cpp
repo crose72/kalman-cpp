@@ -134,3 +134,8 @@ colvec *KF::GetCurrentEstimatedOutput()
 {
     return &z_m_;
 }
+
+mat *KF::GetCurrentCovariance()
+{
+    return &P_m_;
+}
