@@ -6,6 +6,7 @@
  */
 
 #include "kf.h"
+#include "kf_utils.h"
 
 KF::KF()
 {
@@ -55,14 +56,14 @@ void KF::InitSystem(const mat &A, const mat &B, const mat &H, const mat &Q, cons
 
 void KF::InitSystemState(const colvec &x0)
 {
-    arma_assert_same_size(x_.n_rows, x_.n_cols, x0.n_rows, x0.n_cols, "Whoops, error initializing system states");
+    arma_assert_same_size(x_.n_rows, x_.n_cols, x0.n_rows, x0.n_cols, KF_ASSERT_MSG("Whoops, error initializing system states"));
     x_ = x0;
     x_m_ = x0;
 }
 
 void KF::InitStateCovariance(const mat &P0)
 {
-    arma_assert_same_size(P_m_.n_rows, P_m_.n_cols, P0.n_rows, P0.n_cols, "Whoops, error initializing state covariance");
+    arma_assert_same_size(P_m_.n_rows, P_m_.n_cols, P0.n_rows, P0.n_cols, KF_ASSERT_MSG("Whoops, error initializing state covariance"));
     P_m_ = P0;
 }
 
